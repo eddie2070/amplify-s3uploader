@@ -1,5 +1,7 @@
 # Amplify-S3Uploader
 
+<img src="https://github.com/eddie2070/amplify-s3uploader/blob/main/img/website.png?raw=true"/>
+
 ## GET STARTED 
 
 1. https://aws.amazon.com/blogs/mobile/amplify-framework-announces-new-rearchitected-ui-component-and-modular-javascript-libraries/
