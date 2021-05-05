@@ -34,13 +34,13 @@ var params = {
   ],
 };
 
-const signedUrlExpireSeconds = 60 * 5
+const signedUrlExpireSeconds = 60 * 60 * 24 * 7
 
 
-async function sending(objectuploded,presig){
+async function sending(objectuploded,presig,destemail){
     //params.Destination.ToAddresses[0]="eddie2070@gmail.com";
-    params.Destination.ToAddresses[0]="kedouard+MB1@amazon.com";
-    params.Message.Body.Html.Data="Thank you for using the account team S3 Uploader. <br> <br>The last object uploaded " + objectuploded + " can be shared with the following URL:<br> <a href=\""+presig+"\">"+presig+"</a>";
+    params.Destination.ToAddresses[0]=destemail;
+    params.Message.Body.Html.Data="Thank you for using the account team S3 Uploader. <br> <br>The last object uploaded " + objectuploded + " can be shared with the following URL (valid for "+ signedUrlExpireSeconds / 60 / 60 /24 +" days) :<br> <a href=\""+presig+"\">"+presig+"</a>";
     //var sendPromise = new aws.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
     console.log("params edited :",params);
     var sendPromise = await new aws.SES({apiVersion: '2010-12-01'}).sendEmail(params);
@@ -70,7 +70,7 @@ exports.handler = async (event, context) => {
         const { Metadata } = await s3.getObject(params).promise();
         console.log('CONTENT TYPE:', Metadata.author);
         //sendPromise.then(
-        var top = await sending(key, url.toString());
+        var top = await sending(key, url.toString(),Metadata.author);
         console.log(top);
         //sending(Metadata.author);
         //return Metadata.author;
