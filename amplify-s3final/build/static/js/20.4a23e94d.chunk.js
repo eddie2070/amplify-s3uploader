@@ -1,2 +1,0 @@
-(this["webpackJsonpamplify-s3final"]=this["webpackJsonpamplify-s3final"]||[]).push([[20],{604:function(t,n,e){"use strict";e.r(n),e.d(n,"amplify_container",(function(){return s}));var i=e(10),s=function(){function t(t){Object(i.k)(this,t)}return t.prototype.render=function(){return Object(i.i)(i.b,null,Object(i.i)("slot",null))},t}();s.style=":host{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;height:100vh}"}}]);
-//# sourceMappingURL=20.4a23e94d.chunk.js.map
